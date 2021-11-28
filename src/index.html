@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><style>
+    html {text-align: center;}
+    p2 {font-size: 1.5rem;}
+    .button {
+      padding: 15px 50px;
+      font-size: 24px;
+      text-align: center;
+      outline: none;
+      color: #fff;
+      background-color: #0f8b8d;
+      border: none;
+      border-radius: 5px;
+    }
+    .button:active {
+         background-color: #0f8b8d;
+         box-shadow: 2 2px #CDCDCD;
+         transform: translateY(2px);
+    }
+    .state {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    </style>
+    <meta http-equiv="refresh" content="5">
+    <title>ESP Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <h1>Segmental speed measurement</h1>
+    <p>
+    <form action="/get">
+        Distance (current - %distance%): <input type="number" name="distance" style="width: 3em" value="100" min="1" max="200">
+        <label for="meters">m&nbsp;</label>
+        <input type="submit" value="Submit" onclick="submitMessage()">
+      </form><br>
+    <form action="/get">
+        Name (current - %name%): <input type="text" name="name" style="width: 7em" value="">
+        <input type="submit" value="Submit" onclick="submitMessage()">
+      </form>
+    </p>
+    <p class="state">State: <span id="state">%state%</span></p>
+    <form action="/get">
+    <p><button id="button" class="button" name="button" value="yes" onclick="buttonMessage()">Reset</button></p>
+    </form>
+    <p2><a href="**************" target="_blank" rel="noopener noreferrer">Results page</a></p2>
+    <script>
+        function submitMessage() {
+          alert("Value saved");
+          setTimeout(function(){ document.location.reload(false); }, 500);   
+        }
+        function buttonMessage() {
+          alert("Circuit resetted");
+          setTimeout(function(){ document.location.reload(false); }, 500); 
+          document.getElementById("state").innerHTML = "READY";
+         } 
+    </script></body></html>
